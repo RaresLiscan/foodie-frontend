@@ -130,16 +130,16 @@ const styles = StyleSheet.create({
         	flex: 1,
         	alignItems: 'center',
         	paddingBottom: '45%',
-        	paddingTop: '10%'
     },
     heading: {
         fontSize: 16,
-        flex: 1
+        flex: 1,
+        paddingTop: '10%'
     },
     inputs:{
         flex: 1,
         width: '80%',
-        padding: 10
+        padding: 10,
     },
     buttons:{
         marginTop: 15,

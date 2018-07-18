@@ -20,8 +20,9 @@
   },
   "dependencies": {
     "expo": "^27.0.1",
+    "rc-menu": "^7.2.6",
     "react": "16.3.1",
     "react-native": "~0.55.2",
-    "react-navigation": "^2.5.5"
+    "react-navigation": "^2.6.2"
   }
 }

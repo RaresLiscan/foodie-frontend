@@ -72,6 +72,10 @@ export class Login extends React.Component {
 
     }
 
+    resetPassword = () => {
+        this.props.navigation.navigate('ForgotPasswordRT');
+    }
+
     render() {
         return (
             <LoginContext.Provider value={this.state}>
@@ -103,6 +107,9 @@ export class Login extends React.Component {
                     <Text style={styles.buttons}>
                         Cancel
                             </Text>
+                </TouchableHighlight>
+                <TouchableHighlight onPress = {this.resetPassword}>
+                    <Text style = {styles.buttons}>Reset password</Text>
                 </TouchableHighlight>
 
             </View>
