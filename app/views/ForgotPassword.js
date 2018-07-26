@@ -35,7 +35,7 @@ export class ForgotPassword extends React.Component {
         return (
             <View style = {styles.container}>
                 <TextInput 
-                    sty7 = {styles.inputs}
+                    style = {styles.inputs}
                     placeholder = "Email"
                     spellCheck = {false}
                     value = {this.state.email}

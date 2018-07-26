@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, AsyncStorage, Alert  } from 'react-native';
+// import Drawer from 'Drawer';
 
 export class Header extends React.Component {
     constructor(props) {
@@ -49,17 +50,23 @@ export class Header extends React.Component {
 
     
     render() {
-        let display = this.state.isLoggedIn ? this.state.loggedUser : this.props.message ;
+        let display = this.state.isLoggedIn ? this.state.loggedUser : this.props.message;
         return (
             <View style={styles.headStyle}>
+                <Text style={styles.meniu}>
+                </Text>
                 <Image 
                     style={styles.logoStyle} 
-                    source={ require('./img/Globo_logo_REV.png')} 
+                    source={ require('./img/logo.png')} 
+                    resizeMode="contain"
                 />
                 <Text 
                     style={styles.headText} 
                     onPress={this.toggleUser}>{display}
                 </Text>
+                <Image 
+                    source={require('./img/avatar.png')}
+                />
             </View>    
         );
     }
@@ -69,21 +76,29 @@ const styles = StyleSheet.create({
     headText: {
         textAlign: 'right',
         color: '#ffffff',
-        fontSize: 20,
+        fontSize: 15,
         flex: 1
     },
     headStyle: {
         paddingTop: 30,
         paddingRight: 10,
-        backgroundColor: '#35605a',
+        backgroundColor: 'blue',
         flex: 1,
         flexDirection: 'row',
         borderBottomWidth: 2,
-        borderColor: '#000000' 
+        borderColor: '#000000' ,
+        justifyContent: 'center', 
+        alignItems: 'center'
+     
+        
     },
     logoStyle:{
         flex: 1,
         width: undefined,
-        height:undefined,
+        height: 100
+    },
+    meniu:{
+        flex:1
+
     }
 });
