@@ -1,21 +1,25 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, View, Text } from 'react-native';
+import RestaurantList from './RestaurantList';
 
 export class Hero extends React.Component {
     render(){
         return(
-            <Image 
-                style={styles.heroImage} 
-                source={ require('./img/hero.png')} 
-            />
+        <View style={styles.container}>
+            <RestaurantList />
+        </View>
         ); 
     }
 }
 
-const styles = StyleSheet.create ({
-    heroImage: {
-        width: undefined,
-        height: undefined,
-        flex:8,
-    }
-});
+ const styles = StyleSheet.create ({
+     container: {
+         backgroundColor:'white',
+        flex:12,
+    },
+//     restaurant: {
+//         flex:4,
+//         marginBottom:10,
+//         backgroundColor: '#569A61',
+//     }   
+ });

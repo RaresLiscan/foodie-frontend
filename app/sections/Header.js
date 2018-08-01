@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, AsyncStorage, Alert  } from 'react-native';
+import parseJwt from '../sections/utils/jwt'
 
 export class Header extends React.Component {
     constructor(props) {
@@ -37,6 +38,8 @@ export class Header extends React.Component {
                 })
             }
             else {
+                const userInfo = parseJwt(result);
+                console.log(userInfo);
                 this.setState({
                     isLoggedIn: true,
                     loggedUser: result
@@ -49,17 +52,23 @@ export class Header extends React.Component {
 
     
     render() {
-        let display = this.state.isLoggedIn ? this.state.loggedUser : this.props.message ;
+        let display = this.state.isLoggedIn ? this.state.loggedUser : this.props.message;
         return (
             <View style={styles.headStyle}>
+                <Text style={styles.meniu}>
+                </Text>
                 <Image 
                     style={styles.logoStyle} 
-                    source={ require('./img/Globo_logo_REV.png')} 
+                    source={ require('./img/logo_alb.png')} 
+                    resizeMode="contain"
                 />
                 <Text 
                     style={styles.headText} 
                     onPress={this.toggleUser}>{display}
                 </Text>
+                <Image 
+                    source={require('./img/avatar.png')}
+                />
             </View>    
         );
     }
@@ -68,22 +77,30 @@ export class Header extends React.Component {
 const styles = StyleSheet.create({
     headText: {
         textAlign: 'right',
-        color: '#ffffff',
-        fontSize: 20,
+        color: '#EBE1BE',
+        fontSize: 15,
         flex: 1
     },
     headStyle: {
         paddingTop: 30,
         paddingRight: 10,
-        backgroundColor: '#35605a',
+        backgroundColor: '#569A61',
         flex: 1,
         flexDirection: 'row',
         borderBottomWidth: 2,
-        borderColor: '#000000' 
+        borderColor: '#000000' ,
+        justifyContent: 'center', 
+        alignItems: 'center'
+     
+        
     },
     logoStyle:{
         flex: 1,
         width: undefined,
-        height:undefined,
+        height: 100
+    },
+    meniu:{
+        flex:1
+
     }
 });

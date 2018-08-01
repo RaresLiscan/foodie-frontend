@@ -6,7 +6,8 @@ import {
     TextInput,
     TouchableHighlight,
     Alert,
-    AsyncStorage
+    AsyncStorage,
+    Image
 } from 'react-native';
 import axios from 'axios';
 
@@ -75,43 +76,55 @@ export class Login extends React.Component {
     resetPassword = () => {
         this.props.navigation.navigate('ForgotPasswordRT');
     }
+    
+    register = () => {
+        this.props.navigation.navigate('RegisterRT');
+    }
 
     render() {
         return (
             <LoginContext.Provider value={this.state}>
-            <View style={styles.container}>
-                <Text style={styles.heading}>Login</Text>
-
-                <TextInput
-                    style={styles.inputs}
-                    onChangeText={(text) => this.setState({ username: text })}
-                    value={this.state.username}
-                />
-                <Text style={styles.label}>Enter Username</Text>
-
-                <TextInput
-                    style={styles.inputs}
-                    onChangeText={(text) => this.setState({ password: text })}
-                    value={this.state.password}
-                    secureTextEntry={true}
-                />
-                <Text style={styles.label}>Enter Password</Text>
-
-                <TouchableHighlight onPress={this.loginUser} underlayColor='#31e981'>
-                    <Text style={styles.buttons}>
-                        Login
-                            </Text>
-                </TouchableHighlight>
-
+            <View style={styles.cancelContainer}>
                 <TouchableHighlight onPress={this.cancelLogin} underlayColor='#31e981'>
-                    <Text style={styles.buttons}>
-                        Cancel
-                            </Text>
+                        <Image source={ require('./img/cancel-music.png')}  //Thx Egor Rumyantsev for Cancel button
+                        style={styles.cancelButton}/>
                 </TouchableHighlight>
-                <TouchableHighlight onPress = {this.resetPassword}>
-                    <Text style = {styles.buttons}>Reset password</Text>
-                </TouchableHighlight>
+             </View>
+            <View style={styles.container}>
+                <Text style={styles.heading}>Introdu e-mailul si parola</Text>
+                
+                <View style={styles.inRow}>
+                    <Text style={styles.labels}>E-mailul:</Text>
+                    <TextInput
+                        style={styles.inputs}
+                        onChangeText={(text) => this.setState({ username: text })}
+                        value={this.state.username}
+                    />
+                </View>
 
+                <View style={styles.inRow}>
+                    <Text style={styles.labels}>Parola:</Text>
+                    <TextInput
+                        style={styles.inputs}
+                        onChangeText={(text) => this.setState({ password: text })}
+                        value={this.state.password}
+                        secureTextEntry={true}
+                    />
+                </View>
+
+                <View style={styles.inRow}>
+                    <TouchableHighlight onPress={this.loginUser} underlayColor='#31e981'>
+                        <Text style={styles.buttons}>
+                            Intră în cont</Text>
+                    </TouchableHighlight>
+                    
+                    <TouchableHighlight onPress = {this.resetPassword}>
+                        <Text style = {styles.buttons}>Ai uitat parola?</Text>
+                    </TouchableHighlight>
+                </View>
+                <TouchableHighlight onPress = {this.register}>
+                        <Text style = {styles.buttons}>Nu ai cont?</Text>
+                </TouchableHighlight>
             </View>
             </LoginContext.Provider>
         );
@@ -121,26 +134,48 @@ export class Login extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    cancelContainer: {
+        flex:1,
+        backgroundColor: '#569A61',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+    },
     container: {
-        flex: 1,
+        flex: 9,
+        justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: '45%',
-        paddingTop: '10%'
+        backgroundColor: '#569A61',
     },
     heading: {
         fontSize: 16,
-        flex: 1
+        color: '#EBE1BE',
+        paddingBottom: 10
     },
     inputs: {
-        flex: 1,
-        width: '80%',
-        padding: 10
+        width: '70%',
+        padding: 10,
+        color: '#EBE1BE',
     },
     buttons: {
-        marginTop: 15,
-        fontSize: 16
+        margin: 15,
+        fontSize: 16,
+        color: '#EBE1BE',
     },
     labels: {
-        paddingBottom: 10
+        paddingBottom: 10,
+        color: '#EBE1BE',
+    },
+    inRow: {
+        flexWrap: 'wrap', 
+        alignItems: 'flex-start',
+        flexDirection:'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    cancelButton: {
+        alignSelf: 'flex-end',
+        margin: 10
+        
     }
+   
 });
