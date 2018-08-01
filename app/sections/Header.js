@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, AsyncStorage, Alert  } from 'react-native';
-// import Drawer from 'Drawer';
+import parseJwt from '../sections/utils/jwt'
 
 export class Header extends React.Component {
     constructor(props) {
@@ -38,6 +38,8 @@ export class Header extends React.Component {
                 })
             }
             else {
+                const userInfo = parseJwt(result);
+                console.log(userInfo);
                 this.setState({
                     isLoggedIn: true,
                     loggedUser: result
@@ -57,7 +59,7 @@ export class Header extends React.Component {
                 </Text>
                 <Image 
                     style={styles.logoStyle} 
-                    source={ require('./img/logo.png')} 
+                    source={ require('./img/logo_alb.png')} 
                     resizeMode="contain"
                 />
                 <Text 
@@ -75,14 +77,14 @@ export class Header extends React.Component {
 const styles = StyleSheet.create({
     headText: {
         textAlign: 'right',
-        color: '#ffffff',
+        color: '#EBE1BE',
         fontSize: 15,
         flex: 1
     },
     headStyle: {
         paddingTop: 30,
         paddingRight: 10,
-        backgroundColor: 'blue',
+        backgroundColor: '#569A61',
         flex: 1,
         flexDirection: 'row',
         borderBottomWidth: 2,

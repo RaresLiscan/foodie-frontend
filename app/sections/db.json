@@ -1,0 +1,32 @@
+{
+    "restaurants": [
+      {
+        "id": "ASDAOfasf9923asd9ja;lsjd",
+        "imgLink": "./img/hero.png",
+        "name": "Restaurant Continental",
+        "rating": 5,
+        "phone": "0724046519",
+        "adress": "Str. Lacramioarelor nr.3",
+        "open": true
+      },
+      {
+        "id": "ASDAOfasf9923asd9ja;xsjd",
+        "imgLink": "./img/hero.png",
+        "name": "Restaurant Continental",
+        "rating": 5,
+        "phone": "0724046519",
+        "adress": "Str. Lacramioarelor nr.3",
+        "open": true
+      },
+      {
+        "id": "ASDAOfasf9923asd9ja;esjd",
+        "imgLink": "./img/hero.png",
+        "name": "Restaurant Continental",
+        "rating": 5,
+        "phone": "0724046519",
+        "adress": "Str. Lacramioarelor nr.3",
+        "open": true
+      }
+
+    ]
+  }
