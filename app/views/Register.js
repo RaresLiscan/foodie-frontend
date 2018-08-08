@@ -41,7 +41,7 @@ export class Register extends React.Component {
             Alert.alert('Parolele nu se potrivesc')
         }
         else {
-            axios.post("http://localhost:8080/api/user/registration", {
+            axios.post("https://tranquil-beach-95723.herokuapp.com/api/user/registration", {
                 
                  email: this.state.email,
                  password: this.state.password,

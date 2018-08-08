@@ -50,7 +50,7 @@ export class Login extends React.Component {
                     });
                 }
 
-                    axios.post("http://localhost:8080/api/login", {
+                    axios.post("https://tranquil-beach-95723.herokuapp.com/api/login", {
                         username: this.state.username,
                         password: this.state.password
                     })
